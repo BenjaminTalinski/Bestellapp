@@ -10,7 +10,7 @@ let myDishes = [
         "description": "Hier ist die Beschreibung!"
     },
     {
-        "name": "Gericht 3",
+        "name": "Gericht 20",
         "price": 3.00,
         "description": "Hier ist die Beschreibung!"
     },
