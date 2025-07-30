@@ -5,7 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bestellapp</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles/assets.css" />
+    <script type="module" src="script.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
   </head>
-  <body></body>
+  <body>
+    <section class="header">
+      <img class="logo" src="./assets/img/logo.png" alt="Logo" />
+      <div>
+        <button>Anmelden</button>
+        <button>Profil</button>
+        <button>Warenkorb</button>
+      </div>
+    </section>
+    <div class="topOverlay">
+      <img src="./assets/img/header.jpg" alt="Header Image" />
+      <h1>The Restaurant</h1>
+    </div>
+    <div class="navigation">
+      <ul>
+        <li>Vorspeisen</li>
+        <li>Hauptgerichte</li>
+        <li>Desserts</li>
+        <li>Getränke</li>
+      </ul>
+      <img src="./assets/img/bruschetta.jpg" alt="Bruschetta" />
+    </div>
+    <div id="myDishes"></div>
+    <section class="footer"></section>
+  </body>
 </html>

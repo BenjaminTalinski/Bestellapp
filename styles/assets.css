@@ -1,0 +1,42 @@
+
+.logo {
+    width: auto;
+    height: 35px;
+    margin-left: 10px;
+}
+
+.topOverlay img {
+  width: 100%;
+  height: 130px;
+  object-fit: cover;
+}
+
+button {
+  background-color: #ff8000;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.singleDish button {
+  background-color: #ff8000;
+  color: #fff;
+  border: none;
+  padding: 3px 7px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+  }
+
+
+.navigation img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  padding: 0 10px; 
+}

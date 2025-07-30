@@ -3,3 +3,39 @@
   margin: 0;
   padding: 0;
 }
+
+.header {
+    background-color: #ff8000;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h1 { 
+  margin: 10px;
+}
+ 
+.navigation ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid blue;
+  margin: 10px 10px;
+  list-style-type: none;
+}
+
+.singleDish {
+  border: 1px solid red;
+  margin: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.footer {
+    background-color: #ff8000;
+    padding: 30px;
+    
+}
+
