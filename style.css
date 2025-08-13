@@ -6,11 +6,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 50px;
 }
+
 body {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .header {
@@ -22,26 +23,39 @@ body {
     width: 100%;
 }
 
+.stickyHeaderPiece {
+  width: 100%;
+  height: 2px;
+  background-color: #ff8000;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
 .topOverlay, .navigation, .footer {
   width: 100%;
 }
 
-h1 { 
-  margin: 10px;
-}
- 
+
+.navigation {
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid #e0e0e0;
+
+} 
+
 .navigation ul {
   display: flex;
   flex-direction: row;
-  margin: 0 20px;
+  padding: 0 20px;
   list-style-type: none;
-  border-top: 1px solid #000000;
+  background: #f0efef; 
+  z-index: 100;
 }
 
 .navigation ul li {
-  padding: 15px 0;
+  padding: 12.4px 0;
   padding-right: 25px;
-  border-radius: 6px;
 }
 
 .navigation ul li:hover {
@@ -83,9 +97,71 @@ h1 {
   cursor: pointer;
 }
 
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  /* flex: 1 1 0; */
+  
+}
+
+.cart-sidebar {
+  width: 300px;
+  position: fixed;
+  right: 0;
+  height: calc(100vh - 56px - 60px); /* 56px Header, 60px Footer */
+  overflow-y: auto;
+  border: 2px solid #e0e0e0;
+  background: #f0efef;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 300;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 10px;
+  margin-bottom: 8px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.cart-item:hover {
+  background: #ffe5cb;
+}
+
+.cart-item span:first-child {
+  font-weight: 600;
+  flex: 2;
+}
+
+.cart-item span:nth-child(2) {
+  background: #ff8000;
+  color: #fff;
+  border-radius: 15%;
+  padding: 4px 10px;
+  margin: 0 10px;
+  font-weight: bold;
+  flex: 1;
+  text-align: center;
+}
+
+.cart-item span:last-child {
+  font-weight: 500;
+  color: #333;
+  flex: 1;
+  text-align: right;
+}
+
 .footer {
     background-color: #ff8000;
     padding: 30px;
     
 }
 
+.content {
+  flex: 1;
+}

@@ -13,27 +13,36 @@
   <body>
     <section class="header">
       <img class="logo" src="./assets/img/logo.png" alt="Logo" />
-      <div>
-        <button>Anmelden</button>
-        <button>Profil</button>
-        <button>Warenkorb</button>
-      </div>
     </section>
-    <div class="topOverlay">
-      <img src="./assets/img/header.jpg" alt="Header Image" />
-      <h1>The Restaurant</h1>
-      <span class="rating">Bewertung (4,3 von 5 Sternen)</span>
+    <div class="stickyHeaderPiece"></div>
+    <div class="mainContent">
+      <div class="content">
+        <div class="topOverlay">
+          <img src="./assets/img/header.jpg" alt="Header Image" />
+          <h1>The Restaurant</h1>
+          <span class="rating">Bewertung (4,3 von 5 Sternen)</span>
+        </div>
+        <div class="line"></div>
+        <div class="navigation">
+          <ul>
+            <li><a href="#starters">Vorspeisen</a></li>
+            <li><a href="#main">Hauptgerichte</a></li>
+            <li><a href="#desserts">Desserts</a></li>
+            <li><a href="#drinks">Getränke</a></li>
+          </ul>
+        </div>
+        <img
+          class="starterIMG"
+          src="./assets/img/bruschetta.jpg"
+          alt="Bruschetta"
+        />
+        <div id="myDishes"></div>
+      </div>
+      <div class="cart-sidebar">
+        <h3>Warenkorb</h3>
+        <div id="cartItems"></div>
+      </div>
     </div>
-    <div class="navigation">
-      <ul>
-        <li><a href="#starters">Vorspeisen</a></li>
-        <li><a href="#main">Hauptgerichte</a></li>
-        <li><a href="#desserts">Desserts</a></li>
-        <li><a href="#drinks">Getränke</a></li>
-      </ul>
-      <img src="./assets/img/bruschetta.jpg" alt="Bruschetta" />
-    </div>
-    <div id="myDishes"></div>
     <section class="footer"></section>
   </body>
 </html>

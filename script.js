@@ -1,8 +1,8 @@
-
 import {myDishes} from "./scripts/db.js";
 
 const dishesContainer = document.getElementById("myDishes");
-
+const cartItemsDiv = document.getElementById("cartItems"); // <--- hinzufügen!
+let cart = {}; // <--- hinzufügen!
 
 
 
@@ -38,6 +38,9 @@ function renderDishes (category , headline) {
         let createToOrder = document.createElement("button");
         createToOrder.append("+");
 
+        // Hier wird der Event Listener hinzugefügt:
+        createToOrder.addEventListener("click", () => addToCart(dish));
+
         createToOrderDiv.append(createToOrder);
         createDishesDiv.append(createToOrderDiv);
         createDishesDiv.append(dishDiv);
@@ -46,6 +49,33 @@ function renderDishes (category , headline) {
     
     })
 }
+//hier
+function addToCart(dish) {
+    if (cart[dish.name]) {
+        cart[dish.name].quantity += 1;
+    } else {
+        cart[dish.name] = {
+            ...dish,
+            quantity: 1
+        };
+    }
+    renderCart();
+}
+
+function renderCart() {
+    cartItemsDiv.innerHTML = "";
+    Object.values(cart).forEach(item => {
+        const cartItem = document.createElement("div");
+        cartItem.classList.add("cart-item");
+        cartItem.innerHTML = `
+            <span>${item.name}</span>
+            <span>x${item.quantity}</span>
+            <span>${(item.price * item.quantity).toFixed(2)} €</span>
+        `;
+        cartItemsDiv.appendChild(cartItem);
+    });
+}
+//bis hier
 
 renderDishes("starters", "Vorspeisen");
 renderDishes("main", "Hauptgerichte");
