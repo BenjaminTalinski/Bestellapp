@@ -1,8 +1,8 @@
 import {myDishes} from "./scripts/db.js";
 
 const dishesContainer = document.getElementById("myDishes");
-const cartItemsDiv = document.getElementById("cartItems"); // <--- hinzufügen!
-let cart = {}; // <--- hinzufügen!
+const cartItemsDiv = document.getElementById("cartItems"); 
+let cart = {}; 
 
 
 
@@ -30,6 +30,7 @@ function renderDishes (category , headline) {
 
         let createpricePar = document.createElement("p");
         createpricePar.append(`${dish.price.toFixed(2)} €`);
+        createpricePar.classList.add("dishPrice");
         dishDiv.append(createpricePar);
 
         let createDishesDiv = document.createElement("div");
@@ -38,7 +39,7 @@ function renderDishes (category , headline) {
         let createToOrder = document.createElement("button");
         createToOrder.append("+");
 
-        // Hier wird der Event Listener hinzugefügt:
+        
         createToOrder.addEventListener("click", () => addToCart(dish));
 
         createToOrderDiv.append(createToOrder);
@@ -49,7 +50,7 @@ function renderDishes (category , headline) {
     
     })
 }
-//hier
+
 function addToCart(dish) {
     if (cart[dish.name]) {
         cart[dish.name].quantity += 1;
@@ -66,7 +67,7 @@ function renderCart() {
     cartItemsDiv.innerHTML = "";
     Object.values(cart).forEach(item => {
         const cartItem = document.createElement("div");
-        cartItem.classList.add("cart-item");
+        cartItem.classList.add("cartItem");
 
         // Name
         const nameSpan = document.createElement("span");
@@ -75,7 +76,7 @@ function renderCart() {
         // Minus-Button
         const minusBtn = document.createElement("button");
         minusBtn.textContent = "-";
-        minusBtn.classList.add("cart-btn");
+        minusBtn.classList.add("cartBtn");
         minusBtn.addEventListener("click", () => {
             if (item.quantity > 1) {
                 item.quantity -= 1;
@@ -88,7 +89,7 @@ function renderCart() {
         // Plus-Button
         const plusBtn = document.createElement("button");
         plusBtn.textContent = "+";
-        plusBtn.classList.add("cart-btn");
+        plusBtn.classList.add("cartBtn");
         plusBtn.addEventListener("click", () => {
             item.quantity += 1;
             renderCart();
@@ -97,17 +98,18 @@ function renderCart() {
         // Anzahl mittig
         const qtySpan = document.createElement("span");
         qtySpan.textContent = item.quantity;
-        qtySpan.classList.add("cart-qty-number");
+        qtySpan.classList.add("cartQtyNumber");
 
         // Buttons und Anzahl nebeneinander
         const quantityDiv = document.createElement("div");
-        quantityDiv.classList.add("cart-quantity");
+        quantityDiv.classList.add("cartQuantity");
         quantityDiv.appendChild(minusBtn);
         quantityDiv.appendChild(qtySpan);
         quantityDiv.appendChild(plusBtn);
 
         // Preis
         const priceSpan = document.createElement("span");
+        priceSpan.classList.add("priceSpan");
         priceSpan.textContent = `${(item.price * item.quantity).toFixed(2)} €`;
 
         // Zusammenbauen
@@ -117,10 +119,28 @@ function renderCart() {
 
         cartItemsDiv.appendChild(cartItem);
     });
+
+    // Gesamtsumme berechnen und anzeigen
+    const cartTotalValue = Object.values(cart).reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    let cartTotal = document.getElementById("cartTotal");
+    if (!cartTotal) {
+        cartTotal = document.createElement("div");
+        cartTotal.id = "cartTotal";
+        cartTotal.style.marginTop = "16px";
+        cartTotal.style.fontWeight = "bold";
+        cartTotal.style.fontSize = "18px";
+        cartTotal.style.textAlign = "right";
+        cartItemsDiv.appendChild(cartTotal);
+    }
+    cartTotal.textContent = `Gesamtsumme: ${cartTotalValue.toFixed(2)} €`;
 }
 //bis hier
+
+
 
 renderDishes("starters", "Vorspeisen");
 renderDishes("main", "Hauptgerichte");
 renderDishes("desserts", "Desserts");
 renderDishes("drinks", "Getränke");
+
