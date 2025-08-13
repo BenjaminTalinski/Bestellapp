@@ -156,6 +156,46 @@ body {
   text-align: right;
 }
 
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  background: #ff8000;
+  color: #fff;
+  border-radius: 15px;
+  padding: 4px 8px;
+  margin: 0 10px;
+  font-weight: bold;
+  flex: 1;
+  justify-content: center;
+  gap: 8px; /* Abstand zwischen Buttons und Zahl */
+}
+
+.cart-qty-number {
+  margin: 0 6px;
+  font-size: 16px;
+  min-width: 24px;
+  text-align: center;
+  display: inline-block;
+}
+
+.cart-btn {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.2s;
+  box-shadow: none;
+  
+}
+
+.cart-btn:hover {
+  color: #333;
+  background: transparent;
+}
+
 .footer {
     background-color: #ff8000;
     padding: 30px;
