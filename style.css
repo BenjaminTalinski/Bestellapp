@@ -14,6 +14,8 @@ body {
   flex-direction: column;
 }
 
+
+
 .header {
     background-color: #ff8000;
     padding: 3px;
@@ -100,20 +102,35 @@ body {
 .mainContent {
   display: flex;
   justify-content: space-between;
-  /* flex: 1 1 0; */
-  
+  position: relative;
 }
 
 .cartSidebar {
   width: 300px;
   position: fixed;
   right: 0;
-  height: calc(100vh - 56px - 60px); /* 56px Header, 60px Footer */
+  height: calc(100vh - 56px - 60px); 
   overflow-y: auto;
-  border: 2px solid #e0e0e0;
   background: #f0efef;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   z-index: 300;
+}
+
+.cartSidebar h3 {
+  text-align: center;
+  padding: 12px 0;
+}
+
+.cartSidebarBackground {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+  pointer-events: none;
+  background: #f0efef;
+  box-shadow: -8px 0 10px -4px rgba(0,0,0,0.1); 
 }
 
 .cartItem {

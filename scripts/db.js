@@ -71,6 +71,5 @@ export let myDishes = [
         "description": "Cremiger Shake aus gemischten Beeren, Banane und Hafermilch.",
         "category": "drinks"
     },
-    
-    
+  
 ]
