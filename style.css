@@ -73,8 +73,8 @@ body {
 #myDishes {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
-  border: 1px solid red;
+  max-width: 1300px;
+  padding-left: 50px;
 }
 
 .singleDish {
@@ -103,114 +103,7 @@ body {
   display: flex;
   justify-content: space-between;
   position: relative;
-}
-
-.cartSidebar {
-  width: 300px;
-  position: fixed;
-  right: 0;
-  height: calc(100vh - 56px - 60px); 
-  overflow-y: auto;
-  background: #f0efef;
-  z-index: 300;
-}
-
-.cartSidebar h3 {
-  text-align: center;
-  padding: 12px 0;
-}
-
-.cartSidebarBackground {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 300px;
-  height: 100%;
-  background: #fff;
-  z-index: 100;
-  pointer-events: none;
-  background: #f0efef;
-  box-shadow: -8px 0 10px -4px rgba(0,0,0,0.1); 
-}
-
-.cartItem {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 10px;
-  margin-bottom: 8px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
-  font-size: 14px;
-  transition: background 0.2s;
-}
-
-.cartItem:hover {
-  background: #ffe5cb;
-}
-
-.cartItem span:first-child {
-  font-weight: 600;
-  flex: 2;
-}
-
-.cartItem span:nth-child(2) {
-  background: #ff8000;
-  color: #fff;
-  border-radius: 15%;
-  padding: 4px 10px;
-  margin: 0 10px;
-  font-weight: bold;
-  flex: 1;
-  text-align: center;
-}
-
-.cartItem span:last-child {
-  font-weight: 500;
-  color: #333;
-  flex: 1;
-  text-align: right;
-}
-
-.cartQuantity {
-  display: flex;
-  align-items: center;
-  background: #ff8000;
-  color: #fff;
-  border-radius: 15px;
-  padding: 4px 8px;
-  margin: 0 10px;
-  font-weight: bold;
-  flex: 1;
-  justify-content: center;
-  gap: 8px; /* Abstand zwischen Buttons und Zahl */
-}
-
-.cartQtyNumber {
-  margin: 0 6px;
-  font-size: 16px;
-  min-width: 24px;
-  text-align: center;
-  display: inline-block;
-}
-
-.cartBtn {
-  background: transparent;
-  color: #fff;
-  border: none;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 0 4px;
-  transition: color 0.2s;
-  box-shadow: none;
-  
-}
-
-.cartBtn:hover {
-  color: #333;
-  background: transparent;
+  padding-right: 300px; 
 }
 
 .footer {
@@ -222,3 +115,4 @@ body {
 .content {
   flex: 1;
 }
+

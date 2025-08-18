@@ -69,11 +69,12 @@ function renderCart() {
         const cartItem = document.createElement("div");
         cartItem.classList.add("cartItem");
 
-        // Name
-        const nameSpan = document.createElement("span");
-        nameSpan.textContent = item.name;
+        // Name oben
+        const nameDiv = document.createElement("div");
+        nameDiv.classList.add("cartItemName");
+        nameDiv.textContent = item.name;
 
-        // Minus-Button
+        // Mengensteuerung
         const minusBtn = document.createElement("button");
         minusBtn.textContent = "-";
         minusBtn.classList.add("cartBtn");
@@ -86,7 +87,6 @@ function renderCart() {
             renderCart();
         });
 
-        // Plus-Button
         const plusBtn = document.createElement("button");
         plusBtn.textContent = "+";
         plusBtn.classList.add("cartBtn");
@@ -95,27 +95,30 @@ function renderCart() {
             renderCart();
         });
 
-        // Anzahl mittig
         const qtySpan = document.createElement("span");
         qtySpan.textContent = item.quantity;
         qtySpan.classList.add("cartQtyNumber");
 
-        // Buttons und Anzahl nebeneinander
         const quantityDiv = document.createElement("div");
         quantityDiv.classList.add("cartQuantity");
         quantityDiv.appendChild(minusBtn);
         quantityDiv.appendChild(qtySpan);
         quantityDiv.appendChild(plusBtn);
 
-        // Preis
+        // Preis rechts
         const priceSpan = document.createElement("span");
-        priceSpan.classList.add("priceSpan");
+        priceSpan.classList.add("cartItemPrice");
         priceSpan.textContent = `${(item.price * item.quantity).toFixed(2)} €`;
 
+        // Zeile für Menge und Preis
+        const rowDiv = document.createElement("div");
+        rowDiv.classList.add("cartItemRow");
+        rowDiv.appendChild(quantityDiv);
+        rowDiv.appendChild(priceSpan);
+
         // Zusammenbauen
-        cartItem.appendChild(nameSpan);
-        cartItem.appendChild(quantityDiv);
-        cartItem.appendChild(priceSpan);
+        cartItem.appendChild(nameDiv);
+        cartItem.appendChild(rowDiv);
 
         cartItemsDiv.appendChild(cartItem);
     });
@@ -123,20 +126,28 @@ function renderCart() {
     // Gesamtsumme berechnen und anzeigen
     const cartTotalValue = Object.values(cart).reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-    let cartTotal = document.getElementById("cartTotal");
-    if (!cartTotal) {
-        cartTotal = document.createElement("div");
-        cartTotal.id = "cartTotal";
-        cartTotal.style.marginTop = "16px";
-        cartTotal.style.fontWeight = "bold";
-        cartTotal.style.fontSize = "18px";
-        cartTotal.style.textAlign = "right";
-        cartItemsDiv.appendChild(cartTotal);
+    const cartTotal = document.getElementById("cartTotal");
+    if (cartTotal) {
+        cartTotal.textContent = `Gesamtsumme: ${cartTotalValue.toFixed(2)} €`;
     }
-    cartTotal.textContent = `Gesamtsumme: ${cartTotalValue.toFixed(2)} €`;
 }
 //bis hier
 
+document.getElementById('cartOrderButton').addEventListener('click', function() {
+    // Warenkorb leeren
+    cart = {};
+    renderCart();
+
+    // Nachricht anzeigen
+    const orderMessage = document.getElementById('orderMessage');
+    orderMessage.textContent = "Testbestellung erfolgreich";
+    orderMessage.style.display = "block";
+
+    // Nachricht nach 3 Sekunden wieder ausblenden (optional)
+    setTimeout(() => {
+        orderMessage.style.display = "none";
+    }, 3000);
+});
 
 
 renderDishes("starters", "Vorspeisen");
