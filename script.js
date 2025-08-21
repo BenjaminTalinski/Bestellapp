@@ -69,12 +69,12 @@ function renderCart() {
         const cartItem = document.createElement("div");
         cartItem.classList.add("cartItem");
 
-        // Name oben
+        
         const nameDiv = document.createElement("div");
         nameDiv.classList.add("cartItemName");
         nameDiv.textContent = item.name;
 
-        // Mengensteuerung
+        
         const minusBtn = document.createElement("button");
         minusBtn.textContent = "-";
         minusBtn.classList.add("cartBtn");
@@ -105,18 +105,18 @@ function renderCart() {
         quantityDiv.appendChild(qtySpan);
         quantityDiv.appendChild(plusBtn);
 
-        // Preis rechts
+        
         const priceSpan = document.createElement("span");
         priceSpan.classList.add("cartItemPrice");
         priceSpan.textContent = `${(item.price * item.quantity).toFixed(2)} €`;
 
-        // Zeile für Menge und Preis
+        
         const rowDiv = document.createElement("div");
         rowDiv.classList.add("cartItemRow");
         rowDiv.appendChild(quantityDiv);
         rowDiv.appendChild(priceSpan);
 
-        // Zusammenbauen
+        
         cartItem.appendChild(nameDiv);
         cartItem.appendChild(rowDiv);
 
@@ -134,20 +134,39 @@ function renderCart() {
 //bis hier
 
 document.getElementById('cartOrderButton').addEventListener('click', function() {
-    // Warenkorb leeren
-    cart = {};
-    renderCart();
-
-    // Nachricht anzeigen
     const orderMessage = document.getElementById('orderMessage');
-    orderMessage.textContent = "Testbestellung erfolgreich";
-    orderMessage.style.display = "block";
-
-    // Nachricht nach 3 Sekunden wieder ausblenden (optional)
-    setTimeout(() => {
-        orderMessage.style.display = "none";
-    }, 3000);
+    // Prüfen, ob der Warenkorb leer ist
+    const isEmpty = Object.keys(cart).length === 0;
+    orderMessage.classList.remove('orderSuccess', 'orderError');
+    if (isEmpty) {
+        orderMessage.textContent = "Keine Artikel im Warenkorb!";
+        orderMessage.classList.add('orderError');
+        orderMessage.style.display = "block";
+        setTimeout(() => {
+            orderMessage.style.display = "none";
+        }, 3000);
+    } else {
+        // Warenkorb leeren
+        cart = {};
+        renderCart();
+        orderMessage.textContent = "Testbestellung erfolgreich!";
+        orderMessage.classList.add('orderSuccess');
+        orderMessage.style.display = "block";
+        setTimeout(() => {
+            orderMessage.style.display = "none";
+        }, 3000);
+    }
 });
+
+window.toggleBasket = function toggleBasket() {
+    const cartSidebar = document.querySelector('.cartSidebar');
+    const respoBasketBtn = document.getElementById('respoBasketBtn');
+    if (cartSidebar && respoBasketBtn) {
+        cartSidebar.style.display = 'flex';
+        respoBasketBtn.style.display = 'none';
+    }
+    console.log("123")
+};
 
 
 renderDishes("starters", "Vorspeisen");

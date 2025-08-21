@@ -42,9 +42,11 @@
     height: auto;
     box-shadow: none;
   }
+  .respoBasket {
+    display: block !important;
+  }
   .cartSidebar {
-    margin-top: 24px;
-    min-height: unset;
+    display: none;
   }
   #cartItems {
     max-height: 300px;
@@ -57,17 +59,6 @@
 }
 
 @media (max-width: 600px) {
-  .header {
-    flex-direction: column;
-    padding: 8px 0;
-  }
-  .logo {
-    height: 28px;
-    margin-left: 0;
-  }
-  .mainContent {
-    padding: 0;
-  }
   .cartSidebar,
   .cartSidebarBackground {
     width: 100vw;
@@ -87,7 +78,7 @@
     padding-right: 0;
   }
   .singleDish {
-    margin: 10px 2px;
+    margin: 10px 10px;
     padding: 6px;
   }
   .dishDiv p:first-child {
@@ -99,10 +90,6 @@
 }
 
 @media (max-width: 400px) {
-  html, body {
-    width: 100vw;
-    overflow-x: hidden;
-  }
   .mainContent,
   .cartSidebar,
   .cartSidebarBackground {
@@ -151,35 +138,6 @@
 
   .navigation ul li {
    padding: 5px 5px 5px 0;
-  }
-}
-
-@media (max-width: 300px) {
-  .cartItemName {
-    font-size: 12px;
-  }
-  .cartItemPrice {
-    font-size: 12px;
-    min-width: 28px;
-  }
-  .cartOrderButton {
-    font-size: 12px;
-    padding: 8px 0;
-  }
-  .cartItem,
-  .cartOrderButton,
-  .orderMessage {
-    margin-left: 1px;
-    margin-right: 1px;
-    width: calc(100% - 2px);
-  }
-  .singleDish {
-    margin: 4px 0;
-    padding: 2px;
-  }
-  .dishDiv p:first-child,
-  .dishDiv p:nth-child(2) {
-    font-size: 12px;
   }
 }
 

@@ -158,4 +158,46 @@
   display: none;
 }
 
+.orderSuccess {
+  color: #2e7d32;
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  border-radius: 6px;
+  margin: 10px 16px 0 16px;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  display: block;
+}
+
+.orderError {
+  color: #c62828;
+  background: #ffebee;
+  border: 1px solid #e57373;
+  border-radius: 6px;
+  margin: 10px 16px 0 16px;
+  padding: 12px;
+  text-align: center;
+  font-weight: bold;
+  display: block;
+}
+
+.respoBasket {
+  display: none;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1001;
+  background: #ff8000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 28px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  cursor: pointer;
+}
+
+
 
