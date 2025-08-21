@@ -10,6 +10,11 @@
   flex-direction: column;
 }
 
+.cartSidebar h3 {
+  text-align: center;
+  padding: 12px 0;
+}
+
 #cartItems {
   flex: 1 1 auto;
   overflow-y: auto;
@@ -27,11 +32,6 @@
   padding: 16px 16px 16px 0;
   border-top: 2px solid #e0e0e0;
   z-index: 10;
-}
-
-.cartSidebar h3 {
-  text-align: center;
-  padding: 12px 0;
 }
 
 .cartSidebarBackground {
@@ -200,4 +200,15 @@
 }
 
 
-
+.closeCartBtn {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 32px;
+  color: #ff8000;
+  cursor: pointer;
+  z-index: 1001;
+}

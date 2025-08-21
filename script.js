@@ -160,14 +160,36 @@ document.getElementById('cartOrderButton').addEventListener('click', function() 
 
 window.toggleBasket = function toggleBasket() {
     const cartSidebar = document.querySelector('.cartSidebar');
+    const cartSidebarBackground = document.querySelector('.cartSidebarBackground');
     const respoBasketBtn = document.getElementById('respoBasketBtn');
-    if (cartSidebar && respoBasketBtn) {
+    const closeCartBtn = document.getElementById('closeCartBtn'); // Das X
+
+    console.log("respoBasketBtn", respoBasketBtn)
+
+    if (cartSidebar && cartSidebarBackground && respoBasketBtn && closeCartBtn) {
         cartSidebar.style.display = 'flex';
+        cartSidebarBackground.style.display = 'flex';
         respoBasketBtn.style.display = 'none';
+        closeCartBtn.style.display = 'block'; // X anzeigen
     }
-    console.log("123")
+    console.log("123");
 };
 
+window.closeBasket = function closeBasket() {
+    const cartSidebar = document.querySelector('.cartSidebar');
+    const cartSidebarBackground = document.querySelector('.cartSidebarBackground');
+    const respoBasketBtn = document.getElementById('respoBasketBtn');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+
+    if (cartSidebar && cartSidebarBackground && respoBasketBtn && closeCartBtn) {
+        cartSidebar.style.display = 'none';
+        cartSidebarBackground.style.display = 'none';
+        respoBasketBtn.style.display = 'block';
+        closeCartBtn.style.display = 'none'; // X wieder ausblenden
+    }
+};
+
+document.getElementById('closeCartBtn').onclick = window.closeBasket;
 
 renderDishes("starters", "Vorspeisen");
 renderDishes("main", "Hauptgerichte");
