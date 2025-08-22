@@ -14,8 +14,6 @@ body {
   flex-direction: column;
 }
 
-
-
 .header {
     background-color: #ff8000;
     padding: 3px;
@@ -43,7 +41,6 @@ body {
   position: sticky;
   top: 0;
   border-bottom: 2px solid #e0e0e0;
-
 } 
 
 .navigation ul {
@@ -107,9 +104,8 @@ body {
 }
 
 .footer {
-    background-color: #ff8000;
-    padding: 30px;
-    
+  background-color: #ff8000;
+  padding: 30px; 
 }
 
 .content {

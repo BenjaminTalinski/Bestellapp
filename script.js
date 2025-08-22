@@ -39,15 +39,12 @@ function renderDishes (category , headline) {
         let createToOrder = document.createElement("button");
         createToOrder.append("+");
 
-        
         createToOrder.addEventListener("click", () => addToCart(dish));
 
         createToOrderDiv.append(createToOrder);
         createDishesDiv.append(createToOrderDiv);
         createDishesDiv.append(dishDiv);
         dishesContainer.append(createDishesDiv);
-
-    
     })
 }
 
@@ -68,13 +65,11 @@ function renderCart() {
     Object.values(cart).forEach(item => {
         const cartItem = document.createElement("div");
         cartItem.classList.add("cartItem");
-
         
         const nameDiv = document.createElement("div");
         nameDiv.classList.add("cartItemName");
         nameDiv.textContent = item.name;
 
-        
         const minusBtn = document.createElement("button");
         minusBtn.textContent = "-";
         minusBtn.classList.add("cartBtn");
@@ -104,18 +99,15 @@ function renderCart() {
         quantityDiv.appendChild(minusBtn);
         quantityDiv.appendChild(qtySpan);
         quantityDiv.appendChild(plusBtn);
-
         
         const priceSpan = document.createElement("span");
         priceSpan.classList.add("cartItemPrice");
         priceSpan.textContent = `${(item.price * item.quantity).toFixed(2)} €`;
-
         
         const rowDiv = document.createElement("div");
         rowDiv.classList.add("cartItemRow");
         rowDiv.appendChild(quantityDiv);
         rowDiv.appendChild(priceSpan);
-
         
         cartItem.appendChild(nameDiv);
         cartItem.appendChild(rowDiv);
@@ -123,7 +115,6 @@ function renderCart() {
         cartItemsDiv.appendChild(cartItem);
     });
 
-    // Gesamtsumme berechnen und anzeigen
     const cartTotalValue = Object.values(cart).reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     const cartTotal = document.getElementById("cartTotal");
@@ -131,11 +122,10 @@ function renderCart() {
         cartTotal.textContent = `Gesamtsumme: ${cartTotalValue.toFixed(2)} €`;
     }
 }
-//bis hier
 
 document.getElementById('cartOrderButton').addEventListener('click', function() {
     const orderMessage = document.getElementById('orderMessage');
-    // Prüfen, ob der Warenkorb leer ist
+    // check if basket is empty
     const isEmpty = Object.keys(cart).length === 0;
     orderMessage.classList.remove('orderSuccess', 'orderError');
     if (isEmpty) {
@@ -146,7 +136,7 @@ document.getElementById('cartOrderButton').addEventListener('click', function() 
             orderMessage.style.display = "none";
         }, 3000);
     } else {
-        // Warenkorb leeren
+        // clean basket
         cart = {};
         renderCart();
         orderMessage.textContent = "Testbestellung erfolgreich!";
@@ -170,9 +160,8 @@ window.toggleBasket = function toggleBasket() {
         cartSidebar.style.display = 'flex';
         cartSidebarBackground.style.display = 'flex';
         respoBasketBtn.style.display = 'none';
-        closeCartBtn.style.display = 'block'; // X anzeigen
+        closeCartBtn.style.display = 'block';
     }
-    console.log("123");
 };
 
 window.closeBasket = function closeBasket() {
@@ -185,7 +174,7 @@ window.closeBasket = function closeBasket() {
         cartSidebar.style.display = 'none';
         cartSidebarBackground.style.display = 'none';
         respoBasketBtn.style.display = 'block';
-        closeCartBtn.style.display = 'none'; // X wieder ausblenden
+        closeCartBtn.style.display = 'none';
     }
 };
 
